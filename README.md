@@ -49,16 +49,3 @@ Example:
 
 ```python
 apartments_df['price_per_m2'] = apartments_df['last_price'] / apartments_df['total_area']
-
- ## Tools and libraries
-
-- Python
-- pandas
-- numpy
-- matplotlib
-- scipy
-- ydata-profiling
-
-Dependencies are listed in `requirements.txt`.
-
-
