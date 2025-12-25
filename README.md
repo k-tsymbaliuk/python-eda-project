@@ -1,67 +1,51 @@
-# Exploratory Data Analysis of Apartment Prices (Ukraine)
+# 🏢 Apartment Market Exploratory Data Analysis (EDA)
 
-## Project overview
-This project presents an exploratory data analysis (EDA) of an apartment listings dataset.
-The analysis focuses on residential real estate prices, apartment characteristics, and market patterns
-in Kyiv and selected surrounding cities.
+This project presents an exploratory data analysis (EDA) of apartment listings in Ukraine using Python.
 
-The project was completed as part of a data analytics course and demonstrates practical work with
-data cleaning, feature engineering, exploratory analysis, and hypothesis formulation using Python.
+The analysis focuses on pricing patterns, apartment characteristics, data quality issues, and the structure of price distributions, with a particular emphasis on Kyiv and surrounding cities.
+
+The project was originally developed as part of a data analytics course and later adapted and structured for portfolio presentation on GitHub.
 
 ---
 
-## Objectives
-The main goals of the project are:
+## Dataset description
 
-1. Perform initial data cleaning and preprocessing.
-2. Create a new feature representing the price per square meter.
-3. Conduct exploratory data analysis to understand price distributions and key trends.
-4. Identify the most common number of rooms in apartments for sale in Kyiv.
-5. Calculate the average price of one-room apartments in Irpin.
-6. Analyze the popularity of studio apartments.
-7. Formulate a hypothesis about the presence of multimodal distribution in apartment prices in Kyiv
-   and discuss possible reasons behind it.
+The dataset contains structured information about apartments listed for sale, including:
 
----
+- location (city / locality)
+- apartment characteristics (total area, living area, kitchen area, number of rooms)
+- floor and total number of floors
+- price information
+- additional features (balcony, ceiling height, studio format)
 
-## Dataset
-The dataset contains apartment listings with features such as:
-- location (city / district),
-- total price,
-- apartment area,
-- number of rooms,
-- apartment type.
-
-The original data was loaded from a CSV file and processed using **pandas**.
+The dataset is stored locally in the `data/` directory and loaded using **pandas**.
 
 ---
 
-## Tools and technologies
-- Python
-- pandas
-- matplotlib / seaborn
-- ydata-profiling
-- Jupyter Notebook (Google Colab)
+## Research questions
+
+The analysis addresses the following questions:
+
+- What is the cost per square meter of apartments?
+- What number of rooms is most common among apartments sold in Kyiv?
+- What is the average price of a one-room apartment in Irpin?
+- How popular are studio apartments?
+- Is there evidence of a multimodal distribution of apartment prices per square meter in Kyiv?
+- What data quality issues and inconsistencies are present in the dataset?
 
 ---
 
-## Key steps
-- Data cleaning and type correction
-- Feature engineering (price per square meter)
-- Descriptive statistics
-- Visual exploration of distributions
-- Comparative analysis between cities
-- Hypothesis formulation based on observed patterns
+## Data preprocessing and feature engineering
 
----
+Key preprocessing steps include:
 
-## Results
-The analysis reveals clear differences in price levels depending on location and apartment type.
-Evidence suggests that apartment prices in Kyiv may exhibit a multimodal distribution,
-potentially driven by differences between districts, building types, and proximity to infrastructure.
+- removal of irrelevant or empty columns
+- normalization of location names
+- handling missing and zero values
+- conversion of date fields to datetime format
+- creation of a new feature: **price per square meter**
 
----
+Example:
 
-## Notes
-This repository focuses on exploratory analysis.
-The project emphasizes analytical reasoning and interpretation rather than predictive modeling.
+```python
+apartments_df['price_per_m2'] = apartments_df['last_price'] / apartments_df['total_area']
